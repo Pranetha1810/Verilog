@@ -1,0 +1,42 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x55a9b75d1310 .scope module, "not_tb" "not_tb" 2 1;
+ .timescale 0 0;
+v0x55a9b75e1490_0 .var "a", 0 0;
+v0x55a9b75e1530_0 .net "y", 0 0, v0x55a9b75e1370_0;  1 drivers
+S_0x55a9b75d14a0 .scope module, "uut" "not_always" 2 4, 3 1 0, S_0x55a9b75d1310;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /OUTPUT 1 "y";
+v0x55a9b75bf3f0_0 .net "a", 0 0, v0x55a9b75e1490_0;  1 drivers
+v0x55a9b75e1370_0 .var "y", 0 0;
+E_0x55a9b75d19e0 .event anyedge, v0x55a9b75bf3f0_0;
+    .scope S_0x55a9b75d14a0;
+T_0 ;
+    %wait E_0x55a9b75d19e0;
+    %load/vec4 v0x55a9b75bf3f0_0;
+    %inv;
+    %store/vec4 v0x55a9b75e1370_0, 0, 1;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0x55a9b75d1310;
+T_1 ;
+    %vpi_call 2 6 "$dumpfile", "not.vcd" {0 0 0};
+    %vpi_call 2 7 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x55a9b75d1310 {0 0 0};
+    %vpi_call 2 8 "$monitor", "t=%0t,a=%b,y=%b", $time, v0x55a9b75e1490_0, v0x55a9b75e1530_0 {0 0 0};
+    %vpi_call 2 9 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "not_tb.v";
+    "not_always.v";

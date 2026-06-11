@@ -1,0 +1,29 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x5b1d3db62650 .scope module, "mux_assign" "mux_assign" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 2 "i";
+    .port_info 1 /INPUT 1 "sel";
+    .port_info 2 /OUTPUT 1 "y";
+v0x5b1d3db62830_0 .net *"_ivl_1", 0 0, L_0x5b1d3db83ab0;  1 drivers
+v0x5b1d3db836c0_0 .net *"_ivl_3", 0 0, L_0x5b1d3db83b80;  1 drivers
+o0x7317222b7078 .functor BUFZ 2, C4<zz>; HiZ drive
+v0x5b1d3db837a0_0 .net "i", 1 0, o0x7317222b7078;  0 drivers
+o0x7317222b70a8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x5b1d3db83860_0 .net "sel", 0 0, o0x7317222b70a8;  0 drivers
+v0x5b1d3db83920_0 .net "y", 0 0, L_0x5b1d3db83ca0;  1 drivers
+L_0x5b1d3db83ab0 .part o0x7317222b7078, 1, 1;
+L_0x5b1d3db83b80 .part o0x7317222b7078, 0, 1;
+L_0x5b1d3db83ca0 .functor MUXZ 1, L_0x5b1d3db83b80, L_0x5b1d3db83ab0, o0x7317222b70a8, C4<>;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "mux_assign.v";
